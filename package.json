@@ -1,0 +1,14 @@
+{
+  "name": "project1-node",
+  "version": "1.0.0",
+  "description": "mlab project 1 for node.js",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Peakanyo Pretty Mathabathe",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
