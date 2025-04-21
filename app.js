@@ -16,6 +16,30 @@ app.get('/api/v1/movies', (req, res) => {
     });
 });
 
+// using parameters for a single movie
+app.get("/api/v1/movies/:id", (req, res) => {
+    console.log(req.params);
+    const id = req.params.id * 1;
+
+//if id is not found
+    if(id>movies.length){
+        return res.status(404).json({
+        status:'fail',
+        message:'invalid ID'
+        });
+    }
+
+    
+   const movie = movies.find(el => el.id === id) // find parameter id and match it with file id
+
+  res.status(200).json({
+    status: "success",
+    data: {
+      movies: movie,
+    },
+  });
+});
+
 app.post('/api/v1/movies', (req, res) =>{
     // console.log(req.body);
 
@@ -51,6 +75,32 @@ app.get('/api/v1/songs', (req, res) =>{
 });
 
 
+app.get("/api/v1/songs/:id", (req, res) => {
+const id = req.params.id*1;
+
+
+
+if(id>songs.length){
+    return res.status(404).json({
+        status:'failed',
+        message:'Invalid ID'
+    });
+};
+
+ 
+   const song = songs.find(el => el.id === id);
+
+  res.status(200).json({
+    status: "success",
+    data: {
+      songs: song
+    },
+});
+});
+
+
+
+
 app.post('/api/v1/songs', (req, res) =>{
     const newId = songs[songs.length-1].id+1;  //create a new id
     const newSong =Object.assign({id: newId},req.body); //merge the new id with req.body and save it to newsong
@@ -65,6 +115,7 @@ app.post('/api/v1/songs', (req, res) =>{
     });
     });
 });
+
 
 
 //////////////////////////////////////////////////////////////
@@ -82,6 +133,38 @@ app.get('/api/v1/serieses', (req, res) => {
         }
     });
 });
+
+app.get("/api/v1/serieses/:id", (req, res) => {
+  const id = req.params.id * 1;
+
+  if (id > serieses.length) {
+    return res.status(404).json({
+      status: "failed",
+      message: "Invalid ID",
+    });
+  }
+
+  const series = serieses.find((el) => el.id === id);
+
+  res.status(200).json({
+    status: "success",
+    data: {
+      serieses: series,
+    },
+  });
+});
+
+
+
+
+
+  
+
+
+
+
+
+
 
 app.post('/api/v1/serieses', (req, res) => {
 const newId = serieses[serieses.length - 1].id + 1;
