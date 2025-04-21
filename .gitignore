@@ -1,0 +1,7 @@
+#.gitignore
+
+#dependencies
+node_modules/
+
+#IDE file
+.vscode
