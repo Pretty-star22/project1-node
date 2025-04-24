@@ -9,6 +9,7 @@
   "author": "Peakanyo Pretty Mathabathe",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "superagent": "^10.2.0"
   }
 }
